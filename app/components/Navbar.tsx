@@ -4,13 +4,12 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useRouter } from "next/router"; // Import useRouter to detect active page
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClient, setIsClient] = useState(false); // State to track if we are on the client side
   const [currentPath, setCurrentPath] = useState(""); // Track current path
-  
+
   // Ensure that the router is only used after the component is mounted on the client side
   useEffect(() => {
     setIsClient(true);
@@ -61,27 +60,44 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 text-lg font-medium">
-          {["About Us", "Soft Grippers", "Store", "Contact"].map((item, index) => {
-            const path = item === "About Us" ? "/about" : `/${item.toLowerCase().replace(/ /g, "-")}`;
-            return (
-              <motion.div
-                key={index}
-                whileHover={hoverAnimation}
-                transition={{ duration: 0.3 }}
-                className="relative"
-              >
-                <Link href={path} className="relative">
-                  <span
-                    className={`hover:text-orange-500 ${
-                      isActiveLink(path) ? "text-orange-500" : ""
-                    }`}
+          {["About Us", "Soft Grippers", "Store", "Contact"].map(
+            (item, index) => {
+              const path =
+                item === "About Us"
+                  ? "/about"
+                  : item === "Contact"
+                  ? "mailto:saheem.k@orangewood.co"
+                  : `/${item.toLowerCase().replace(/ /g, "-")}`;
+              return (
+                <motion.div
+                  key={index}
+                  whileHover={hoverAnimation}
+                  transition={{ duration: 0.3 }}
+                  className="relative"
+                >
+                  <Link
+                    href={path}
+                    className="relative"
+                    target={item === "Contact" ? "_self" : undefined}
                   >
-                    {item}
-                  </span>
-                </Link>
-              </motion.div>
-            );
-          })}
+                    <span
+                      className={`hover:text-orange-500 ${
+                        isActiveLink(path) ? "text-orange-500" : ""
+                      }`}
+                    >
+                      {item}
+                    </span>
+                    {isActiveLink(path) && (
+                      <motion.div
+                        className="absolute bottom-0 left-0 w-full h-1 "
+                        layoutId="underline"
+                      />
+                    )}
+                  </Link>
+                </motion.div>
+              );
+            }
+          )}
         </div>
 
         {/* Mobile Menu */}
@@ -97,7 +113,7 @@ const Navbar: React.FC = () => {
               viewBox="0 0 24 24"
               strokeWidth="2"
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-6 h-6 text-orange-500"
             >
               <path
                 strokeLinecap="round"
@@ -116,30 +132,47 @@ const Navbar: React.FC = () => {
           animate={fadeInMenuPanel.animate}
           exit={fadeInMenuPanel.exit}
           transition={fadeInMenuPanel.transition}
-          className="md:hidden bg-white shadow-lg"
+          className="md:hidden bg-black text-orange-500 shadow-lg"
         >
           <ul className="flex flex-col items-center space-y-4 p-4 text-lg font-medium">
-            {["About Us", "Soft Grippers", "Store", "Contact"].map((item, index) => {
-              const path = item === "About Us" ? "/about" : `/${item.toLowerCase().replace(/ /g, "-")}`;
-              return (
-                <motion.li
-                  key={index}
-                  whileHover={hoverAnimation}
-                  transition={{ duration: 0.3 }}
-                  className="relative"
-                >
-                  <Link href={path} className="relative block">
-                    <span
-                      className={`hover:text-orange-500 ${
-                        isActiveLink(path) ? "text-orange-500" : ""
-                      }`}
+            {["About Us", "Soft Grippers", "Store", "Contact"].map(
+              (item, index) => {
+                const path =
+                  item === "About Us"
+                    ? "/about"
+                    : item === "Contact"
+                    ? "mailto:saheem.k@orangewood.co"
+                    : `/${item.toLowerCase().replace(/ /g, "-")}`;
+                return (
+                  <motion.li
+                    key={index}
+                    whileHover={hoverAnimation}
+                    transition={{ duration: 0.3 }}
+                    className="relative"
+                  >
+                    <Link
+                      href={path}
+                      className="relative block"
+                      target={item === "Contact" ? "_self" : undefined}
                     >
-                      {item}
-                    </span>
-                  </Link>
-                </motion.li>
-              );
-            })}
+                      <span
+                        className={`hover:text-orange-500 ${
+                          isActiveLink(path) ? "text-orange-500" : ""
+                        }`}
+                      >
+                        {item}
+                      </span>
+                      {isActiveLink(path) && (
+                        <motion.div
+                          className="absolute bottom-0 left-0 w-full h-1 "
+                          layoutId="underline"
+                        />
+                      )}
+                    </Link>
+                  </motion.li>
+                );
+              }
+            )}
           </ul>
         </motion.div>
       )}

@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";  // Adjust path if needed
 import Footer from "../components/Footer";  // Adjust path if needed
 import Image from "next/image"; // For Next.js Image component
 
+
 const AboutUs: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
 
@@ -21,7 +22,7 @@ const AboutUs: React.FC = () => {
       {/* Decorative Line Above About Us */}
       {isClient && (
         <motion.div
-          className="w-20 h-1 bg-orange-600 mb-8 mx-auto"
+          className="w-20 h-1  mb-8 mx-auto"
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
           viewport={{ once: true }}
@@ -52,6 +53,7 @@ const AboutUs: React.FC = () => {
           <motion.button
             className="mt-8 px-8 py-3 bg-orange-500 text-black text-lg font-semibold rounded-full hover:bg-orange-600 transition"
             whileHover={{ scale: 1.1 }}
+            onClick={() => window.location.href = "/store"}
           >
             Explore Products
           </motion.button>
@@ -83,7 +85,7 @@ const AboutUs: React.FC = () => {
       {/* Decorative Line Below About Us Section */}
       {isClient && (
         <motion.div
-          className="w-20 h-1 bg-orange-600 mb-8 mx-auto"
+          className="w-20 h-1  mb-8 mx-auto"
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
           viewport={{ once: true }}
@@ -111,6 +113,9 @@ const AboutUs: React.FC = () => {
             <motion.button
               className="mt-6 px-8 py-3 bg-orange-500 text-black text-lg font-semibold rounded-full hover:bg-orange-600 transition"
               whileHover={{ scale: 1.1 }}
+              onClick={() => window.location.href = "/store"}
+          
+              
             >
               Explore Products
             </motion.button>
