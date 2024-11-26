@@ -1,53 +1,12 @@
 import React from "react";
 import Navbar from "../components/Navbar"; // Adjust path as necessary
 import Footer from "../components/Footer"; // Adjust path as necessary
-import "slick-carousel/slick/slick.css"; // Slick carousel styles
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick"; // Carousel library
 
 const GripperStore: React.FC = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-  };
-
   return (
     <div className="bg-[#0a0a0a] text-white">
       <Navbar />
 
-      {/* Hero Section with Carousel */}
-      <div className="container mx-auto p-6">
-        <Slider {...settings}>
-          <div>
-            <img
-              src="/images/gripper1.jpg"
-              alt="Gripper Model 1"
-              className="w-full rounded-lg"
-            />
-          </div>
-          <div>
-            <img
-              src="/images/gripper2.jpg"
-              alt="Gripper Model 2"
-              className="w-full rounded-lg"
-            />
-          </div>
-          <div>
-            <img
-              src="/images/gripper3.jpg"
-              alt="Gripper Model 3"
-              className="w-full rounded-lg"
-            />
-          </div>
-        </Slider>
-      </div>
-
-      {/* Page Header */}
       <div className="container mx-auto p-6">
         <header className="text-center mb-8">
           <h1 className="text-4xl text-orange-600 font-bold mb-4">Orangewood Labs | R&D Department</h1>
@@ -55,12 +14,11 @@ const GripperStore: React.FC = () => {
           <p className="text-lg text-gray-300">Version: 1.0 | Date: 15/11/2024</p>
         </header>
 
-        {/* Technical Specifications Section */}
         <section className="mb-8">
           <h2 className="text-2xl text-orange-600 font-semibold mb-4">Technical Specifications</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* General Information */}
-            <div className="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <div className="bg-gray-800 rounded-lg p-4 shadow-lg col-span-2">
               <h3 className="text-xl text-orange-600 font-semibold mb-2">1. General Information</h3>
               <ul className="text-gray-400">
                 <li><strong>Gripper Type:</strong> Soft Robotic Gripper</li>
@@ -72,7 +30,7 @@ const GripperStore: React.FC = () => {
             </div>
 
             {/* Physical Specifications */}
-            <div className="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <div className="bg-gray-800 rounded-lg p-4 shadow-lg">
               <h3 className="text-xl text-orange-600 font-semibold mb-2">2. Physical Specifications</h3>
               <ul className="text-gray-400">
                 <li><strong>Finger Length:</strong> 130 mm (customizable for application)</li>
@@ -84,7 +42,7 @@ const GripperStore: React.FC = () => {
             </div>
 
             {/* Performance Specifications */}
-            <div className="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <div className="bg-gray-800 rounded-lg p-4 shadow-lg row-span-2">
               <h3 className="text-xl text-orange-600 font-semibold mb-2">3. Performance Specifications</h3>
               <ul className="text-gray-400">
                 <li><strong>Payload Capacity:</strong> 0.2kg - 0.3kg</li>
@@ -96,7 +54,7 @@ const GripperStore: React.FC = () => {
             </div>
 
             {/* Operational Requirements */}
-            <div className="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <div className="bg-gray-800 rounded-lg p-4 shadow-lg">
               <h3 className="text-xl text-orange-600 font-semibold mb-2">4. Operational Requirements</h3>
               <ul className="text-gray-400">
                 <li><strong>Operating Pressure:</strong> 3-6 bar (optimal at 4.5 bar)</li>
@@ -106,7 +64,7 @@ const GripperStore: React.FC = () => {
             </div>
 
             {/* Customization Options */}
-            <div className="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <div className="bg-gray-800 rounded-lg p-4 shadow-lg">
               <h3 className="text-xl text-orange-600 font-semibold mb-2">5. Customization Options</h3>
               <ul className="text-gray-400">
                 <li><strong>Finger Count:</strong> 2 - 6 finger</li>
@@ -117,7 +75,7 @@ const GripperStore: React.FC = () => {
             </div>
 
             {/* Accessories and Attachments */}
-            <div className="bg-gray-800 rounded-xl p-4 shadow-lg">
+            <div className="bg-gray-800 rounded-lg p-4 shadow-lg col-span-2">
               <h3 className="text-xl text-orange-600 font-semibold mb-2">6. Accessories and Attachments</h3>
               <ul className="text-gray-400">
                 <li><strong>Adapters/Flanges:</strong> Custom mounting plates for various robot brands</li>
