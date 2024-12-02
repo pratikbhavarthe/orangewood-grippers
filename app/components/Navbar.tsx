@@ -3,43 +3,30 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isClient, setIsClient] = useState(false); // State to track if we are on the client side
-  const [currentPath, setCurrentPath] = useState(""); // Track current path
+  const [currentPath, setCurrentPath] = useState("");
+  const [isClient, setIsClient] = useState(false);
 
-  // Ensure that the router is only used after the component is mounted on the client side
   useEffect(() => {
     setIsClient(true);
-    setCurrentPath(window.location.pathname); // Get current path on the client side
   }, []);
+
+  useEffect(() => {
+    if (isClient) {
+      setCurrentPath(window.location.pathname);
+    }
+  }, [isClient]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const hoverAnimation = {
-    scale: 1.1,
-    color: "#FFA500",
-    textShadow: "0px 0px 8px rgba(255, 165, 0, 0.8)",
-  };
+  const isActiveLink = (path: string) => currentPath === path;
 
-  const fadeInMenuPanel = {
-    initial: { opacity: 0, y: -20 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 },
-    transition: { type: "spring", stiffness: 100 },
-  };
-
-  // Function to check if the current route matches the menu item
-  const isActiveLink = (path: string) => {
-    return currentPath === path;
-  };
-
-  // If we're not on the client side yet, return null (this avoids errors when rendering on the server side)
   if (!isClient) {
+    // Avoid rendering until the client is detected
     return null;
   }
 
@@ -47,134 +34,131 @@ const Navbar: React.FC = () => {
     <nav className="bg-transparent">
       <div className="container mx-auto flex items-center justify-between p-4">
         {/* Logo */}
-        <div className="flex items-center">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/ow.png" // Update the path to your logo
-              alt="Orangewood Logo"
-              width={190}
-              height={80}
-            />
-          </Link>
-        </div>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/ow.png"
+            alt="Orangewood Logo"
+            width={190}
+            height={80}
+          />
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 text-lg font-medium">
-          {["About Us", "Soft Grippers", "Store", "Contact"].map(
-            (item, index) => {
-              const path =
-                item === "About Us"
-                  ? "/about"
-                  : item === "Contact"
-                  ? "mailto:saheem.k@orangewood.co"
-                  : `/${item.toLowerCase().replace(/ /g, "-")}`;
-              return (
-                <motion.div
-                  key={index}
-                  whileHover={hoverAnimation}
-                  transition={{ duration: 0.3 }}
-                  className="relative"
-                >
+          {["About Us", "Our Products", "Contact"].map((item, index) => {
+            const path =
+              item === "About Us"
+                ? "/about"
+                : item === "Contact"
+                ? "mailto:saheem.k@orangewood.co"
+                : `/${item.toLowerCase().replace(/ /g, "-")}`;
+            return (
+              <div key={index} className="relative">
+                {item === "Contact" ? (
+                  <a
+                    href={path}
+                    className="hover:text-orange-500"
+                    aria-label="Contact"
+                  >
+                    {item}
+                  </a>
+                ) : (
                   <Link
                     href={path}
-                    className="relative"
-                    target={item === "Contact" ? "_self" : undefined}
+                    className={`hover:text-orange-500 ${
+                      isActiveLink(path) ? "text-orange-500" : ""
+                    }`}
                   >
-                    <span
-                      className={`hover:text-orange-500 ${
-                        isActiveLink(path) ? "text-orange-500" : ""
-                      }`}
-                    >
-                      {item}
-                    </span>
-                    {isActiveLink(path) && (
-                      <motion.div
-                        className="absolute bottom-0 left-0 w-full h-1 "
-                        layoutId="underline"
-                      />
-                    )}
+                    {item}
                   </Link>
-                </motion.div>
-              );
-            }
-          )}
+                )}
+              </div>
+            );
+          })}
         </div>
 
-        {/* Mobile Menu */}
-        <div className="md:hidden">
-          <button
-            className="focus:outline-none"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden focus:outline-none"
+          onClick={toggleMenu}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            className="w-6 h-6 text-orange-500"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="currentColor"
-              className="w-6 h-6 text-orange-500"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
-        </div>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
       </div>
 
-      {/* Mobile Menu Panel */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
-        <motion.div
-          initial={fadeInMenuPanel.initial}
-          animate={fadeInMenuPanel.animate}
-          exit={fadeInMenuPanel.exit}
-          transition={fadeInMenuPanel.transition}
-          className="md:hidden bg-black text-orange-500 shadow-lg"
-        >
-          <ul className="flex flex-col items-center space-y-4 p-4 text-lg font-medium">
-            {["About Us", "Soft Grippers", "Store", "Contact"].map(
-              (item, index) => {
-                const path =
-                  item === "About Us"
-                    ? "/about"
-                    : item === "Contact"
-                    ? "mailto:saheem.k@orangewood.co"
-                    : `/${item.toLowerCase().replace(/ /g, "-")}`;
-                return (
-                  <motion.li
-                    key={index}
-                    whileHover={hoverAnimation}
-                    transition={{ duration: 0.3 }}
-                    className="relative"
-                  >
-                    <Link
-                      href={path}
-                      className="relative block"
-                      target={item === "Contact" ? "_self" : undefined}
-                    >
-                      <span
-                        className={`hover:text-orange-500 ${
-                          isActiveLink(path) ? "text-orange-500" : ""
-                        }`}
-                      >
-                        {item}
-                      </span>
-                      {isActiveLink(path) && (
-                        <motion.div
-                          className="absolute bottom-0 left-0 w-full h-1 "
-                          layoutId="underline"
-                        />
+        <>
+          {/* Background overlay */}
+          <div
+            className="fixed inset-0 bg-black opacity-50 z-40"
+            onClick={toggleMenu}
+            aria-hidden="true"
+          ></div>
+
+          {/* Full-screen black card */}
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black"
+            aria-hidden="false"
+          >
+            <div className="relative w-full h-full flex flex-col items-center justify-center p-8">
+              <button
+                onClick={toggleMenu}
+                className="absolute top-4 right-4 text-white text-3xl"
+                aria-label="Close menu"
+              >
+                &times;
+              </button>
+
+              <ul className="flex flex-col items-center space-y-8 text-3xl font-semibold text-white">
+                {["About Us", "Our Products", "Contact"].map((item, index) => {
+                  const path =
+                    item === "About Us"
+                      ? "/about"
+                      : item === "Contact"
+                      ? "mailto:saheem.k@orangewood.co"
+                      : `/${item.toLowerCase().replace(/ /g, "-")}`;
+                  return (
+                    <li key={index}>
+                      {item === "Contact" ? (
+                        <a
+                          href={path}
+                          className="hover:text-orange-500"
+                          aria-label="Contact"
+                        >
+                          {item}
+                        </a>
+                      ) : (
+                        <Link
+                          href={path}
+                          className={`hover:text-orange-500 ${
+                            isActiveLink(path) ? "text-orange-500" : ""
+                          }`}
+                        >
+                          {item}
+                        </Link>
                       )}
-                    </Link>
-                  </motion.li>
-                );
-              }
-            )}
-          </ul>
-        </motion.div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </>
       )}
     </nav>
   );

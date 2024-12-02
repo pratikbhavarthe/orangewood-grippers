@@ -11,7 +11,7 @@ const monumentRegular = localFont({
 
 // Define the PPMonumentExtended-Black font
 const monumentBlack = localFont({
-  src: "/fonts/OffBitTrial-DotBold.otf",
+  src: "/fonts/AcroMono.otf",
   variable: "--font-monument-black",
   weight: "900", // Black weight
 });

@@ -23,8 +23,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-gray-200 text-lg">
               {[
                 "About Us",
-                "Soft Grippers",
-                "Store",
+                "Our Products",
                 "Orangewood Labs",
                 "Orangewood Store",
               ].map((item, index) => (
@@ -57,7 +56,7 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h3 className="text-2xl text-black font-bold mb-4">Stalk Us</h3>
+            <h3 className="text-3xl text-black font-bold mb-4">Stalk Us</h3>
             <ul className="flex flex-wrap gap-6 text-gray-200 text-lg">
               {[
                 {
@@ -97,7 +96,7 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h3 className=" text-2xl text-black font-bold">Contact</h3>
+          <h3 className=" text-3xl text-black font-bold">Contact</h3>
           <ul className="text-gray-200 text-lg space-y-4">
             <li>
               <p className="font-bold">Orangewood Labs | R&D Department</p>
@@ -122,7 +121,7 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h3 className=" text-2xl font-bold text-black">
+          <h3 className=" text-3xl font-bold text-black">
             Support our journey!
           </h3>
           <p className="text-gray-200">
@@ -168,11 +167,9 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Footer Bottom */}
-      {/* Footer Bottom */}
       <div className="container mx-auto mt-12 px-4">
         {/* Border Line */}
-       
-<hr  />
+        <hr />
         {/* Links and Copyright Section */}
         <div className="mt-6 flex flex-col md:flex-row justify-between items-center text-white text-sm space-y-4 md:space-y-0">
           {/* Links Section */}
@@ -193,11 +190,11 @@ const Footer: React.FC = () => {
 
           {/* Copyright Section */}
           <div className="text-center md:text-right opacity-80">
-            &copy; {new Date().getFullYear()} Soft Gripper. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Orangewood Labs. All Rights Reserved.
           </div>
         </div>
       </div>
-      </footer>
+    </footer>
   );
 };
 

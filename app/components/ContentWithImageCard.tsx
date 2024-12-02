@@ -13,7 +13,7 @@ const ContentWithImageCard: React.FC = () => {
         <div className="flex flex-col items-start md:w-1/2">
           {/* Line */}
           <motion.div
-            className="w-20 h-1 bg-orange-600 mb-6" // Added space between the line and the title
+            className="w-20 h-1 bg-orange-600 mb-6"
             initial={{ opacity: 0, scaleX: 0 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
             viewport={{ once: true }}
@@ -22,37 +22,36 @@ const ContentWithImageCard: React.FC = () => {
 
           {/* Title */}
           <motion.h2
-            className="text-4xl font-bold text-orange-600 mb-6" // Added margin-bottom for title
+            className="text-4xl font-bold text-orange-600 mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            New Section Title
+            TRANSFORMING AUTOMATION WITH SOFT GRIPPERS
           </motion.h2>
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg md:text-xl text-gray-700 mb-6"
+            className="text-lg md:text-xl text-gray-300 mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
-            Short description or subheading that gives context to the section.
+            Discover the unique benefits of our soft grippers in automation and material handling.
           </motion.p>
 
           {/* Content */}
           <motion.p
-            className="text-gray-600 mb-8"
+            className="text-gray-400 mb-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
           >
-            Here you can add some descriptive content that explains the purpose
-            of the section in more detail. This text will provide a deeper
-            understanding of what the user is looking at.
+            Our soft grippers provide adaptive gripping, protecting fragile items while improving efficiency.
+            Perfect for delicate materials and dynamic environments, our technology is designed for versatility and precision.
           </motion.p>
 
           {/* Button */}
@@ -60,7 +59,7 @@ const ContentWithImageCard: React.FC = () => {
             className="flex items-center bg-orange-600 text-white py-2 px-6 rounded-full cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            onClick={() => window.location.href = "/soft-grippers"} // Redirect to another page
+            onClick={() => window.location.href = "/soft-grippers"} // Redirect to Soft Grippers page
           >
             <span className="mr-3">Learn More</span>
             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
@@ -78,8 +77,8 @@ const ContentWithImageCard: React.FC = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <Image
-              src="/3.jpeg" // Use the next image here (replace with the correct URL)
-              alt="Image description"
+              src="/copy_of_bot.avif" // Replace with actual image URL related to soft grippers
+              alt="Soft Gripper in action"
               width={500} // Set width of image
               height={500} // Set height of image
               className="object-cover" // Ensures image cover style

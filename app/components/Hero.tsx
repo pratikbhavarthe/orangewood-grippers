@@ -5,11 +5,25 @@ import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative h-screen bg-cover bg-center" style={{ backgroundImage: "url('/hero-background.jpg')" }}>
+    <section className="relative h-screen overflow-hidden">
+      {/* Video Background */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/3.mp4" // Optional: Poster image for when the video is loading
+      >
+        <source src="/3.mp4" type="video/mp4" />
+        {/* Add more sources for other formats (WebM, Ogg) if needed */}
+        Your browser does not support the video tag.
+      </video>
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-40"></div>
 
-      <div className="container mx-auto px-4 py-32 h-full flex items-center justify-center relative z-10">
+      <div className="container mx-auto px-4 py-16 sm:py-24 md:py-32 h-full flex items-center justify-center relative z-10">
         {/* Hero Content */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -48,7 +62,7 @@ const Hero: React.FC = () => {
             Discover innovative solutions and the future of soft grippers.
           </motion.p>
 
-          {/* Shop Now Button: Gentle Pulse on Hover */}
+          {/* Shop Now Button: Removed Glow Effect */}
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -58,8 +72,7 @@ const Hero: React.FC = () => {
               delay: 1.5,
             }}
             whileHover={{
-              scale: 1.1,
-              boxShadow: "0px 12px 15px rgba(255, 165, 0, 0.4)",
+              scale: 1.05,
               transition: { type: "spring", stiffness: 300, damping: 15 },
             }}
             whileTap={{
