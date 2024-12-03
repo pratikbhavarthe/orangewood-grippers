@@ -15,7 +15,9 @@ interface FormData {
 }
 
 const PricingRequestForm: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState<"quote" | "help" | "">("");
+  const [selectedOption, setSelectedOption] = useState<"quote" | "help" | "">(
+    ""
+  );
   const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
@@ -26,7 +28,7 @@ const PricingRequestForm: React.FC = () => {
     comments: "",
   });
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);  // For error handling
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); // For error handling
   const [successMessage, setSuccessMessage] = useState<string | null>(null); // For success message
 
   const handleProductSelection = (product: string) => {
@@ -38,7 +40,9 @@ const PricingRequestForm: React.FC = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -47,7 +51,7 @@ const PricingRequestForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true); // Indicate form is being submitted
-    setErrorMessage(null);  // Reset error message on new submission
+    setErrorMessage(null); // Reset error message on new submission
     setSuccessMessage(null); // Reset success message
 
     if (!selectedOption) {
@@ -79,7 +83,9 @@ const PricingRequestForm: React.FC = () => {
       const result = await response.json();
 
       if (response.ok) {
-        setSuccessMessage("Form submitted successfully! We will get back to you shortly.");
+        setSuccessMessage(
+          "Form submitted successfully! We will get back to you shortly."
+        );
       } else {
         setErrorMessage(result.error || "Failed to submit the form.");
       }
@@ -120,10 +126,12 @@ const PricingRequestForm: React.FC = () => {
               Get Pricing
             </h2>
             <p className="text-lg text-gray-300">
-              Take the first step towards your ideal solution - fill out the form
-              and let us tailor a perfect fit for your needs!
+              Take the first step towards your ideal solution - fill out the
+              form and let us tailor a perfect fit for your needs!
             </p>
-            <p className="text-sm text-gray-400 mt-2">All fields are required.</p>
+            <p className="text-sm text-gray-400 mt-2">
+              All fields are required.
+            </p>
           </div>
 
           <form
@@ -138,7 +146,9 @@ const PricingRequestForm: React.FC = () => {
               <select
                 name="inquiryType"
                 value={selectedOption}
-                onChange={(e) => setSelectedOption(e.target.value as "quote" | "help" | "")}
+                onChange={(e) =>
+                  setSelectedOption(e.target.value as "quote" | "help" | "")
+                }
                 className="w-full px-4 py-2 border border-gray-600 rounded-lg bg-gray-700 text-white"
                 required
               >
@@ -159,20 +169,25 @@ const PricingRequestForm: React.FC = () => {
                   Select the products you’re interested in:
                 </label>
                 <div className="space-y-2">
-                  {["3-Finger Gripper", "5-Finger Gripper", "6-Finger Gripper"].map(
-                    (product) => (
-                      <label key={product} className="flex items-center text-white">
-                        <input
-                          type="checkbox"
-                          value={product}
-                          checked={selectedProducts.includes(product)}
-                          onChange={() => handleProductSelection(product)}
-                          className="mr-2"
-                        />
-                        {product}
-                      </label>
-                    )
-                  )}
+                  {[
+                    "3-Finger Gripper",
+                    "5-Finger Gripper",
+                    "6-Finger Gripper",
+                  ].map((product) => (
+                    <label
+                      key={product}
+                      className="flex items-center text-white"
+                    >
+                      <input
+                        type="checkbox"
+                        value={product}
+                        checked={selectedProducts.includes(product)}
+                        onChange={() => handleProductSelection(product)}
+                        className="mr-2"
+                      />
+                      {product}
+                    </label>
+                  ))}
                 </div>
               </div>
             )}
@@ -253,7 +268,9 @@ const PricingRequestForm: React.FC = () => {
             </div>
 
             <div className="mb-6">
-              <label className="block text-gray-300 font-medium mb-2">Comments</label>
+              <label className="block text-gray-300 font-medium mb-2">
+                Comments
+              </label>
               <textarea
                 name="comments"
                 value={formData.comments}
@@ -280,13 +297,13 @@ const PricingRequestForm: React.FC = () => {
           )}
         </div>
 
-        {/* Image Section (Optional) */}
-        <div className="w-full md:w-1/2">
+        {/* Image Section */}
+        <div className="flex flex-col md:flex-row items-center md:items-center mt-40">
           <Image
-            src="/pricing.jpg"
-            alt="Pricing Image"
-            width={500}
-            height={500}
+            src="/6.8 render.png"
+            alt="6.8 render bot"
+            width={800}
+            height={800}
             className="object-cover rounded-lg shadow-lg"
           />
         </div>

@@ -13,30 +13,19 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".", // Allows absolute imports
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
-      "@/*": ["./*"] // Alias for project root
+      "@/*": ["./*"]
     },
     "typeRoots": [
-      "./node_modules/@types", // Default type declarations
-      "./types" // Custom types directory
-    ],
-    "forceConsistentCasingInFileNames": true, // Enforces consistent file casing
-    "strictNullChecks": true, // Ensures proper null handling
-    "noImplicitAny": true, // Disallows implicit any types
-    "allowSyntheticDefaultImports": true // Allows default imports for CommonJS modules
+      "./node_modules/@types",
+      "./types"  // Include your custom types directory here
+    ]
   },
-  "include": [
-    "next-env.d.ts", // Next.js environment declarations
-    "**/*.ts", 
-    "**/*.tsx", 
-    ".next/types/**/*.ts" // Next.js specific type files
-  ],
-  "exclude": [
-    "node_modules", // Exclude dependencies
-    "out", // Build output folder
-    ".next", // Next.js build folder
-    "**/*.test.ts", // Exclude test files (if applicable)
-    "**/*.spec.ts" // Exclude spec files (if applicable)
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
