@@ -61,9 +61,9 @@ const Footer: React.FC = () => {
               {[
                 {
                   name: "LinkedIn",
-                  url: "https://www.linkedin.com/company/orangewood-labs/",
+                  url: "https://www.linkedin.com/company/orangewood-labs/posts/?feedView=all",
                 },
-                { name: "Twitter", url: "https://x.com/orangewoodlabs" },
+                { name: "Twitter", url: "https://x.com/OrangewoodLabs" },
                 {
                   name: "YouTube",
                   url: "https://www.youtube.com/@OrangewoodLabs",
