@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
@@ -63,7 +64,7 @@ const Hero: React.FC = () => {
           </motion.p>
 
           {/* Shop Now Button: Removed Glow Effect */}
-          <motion.button
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
@@ -71,18 +72,23 @@ const Hero: React.FC = () => {
               ease: "easeOut",
               delay: 1.5,
             }}
-            whileHover={{
-              scale: 1.05,
-              transition: { type: "spring", stiffness: 300, damping: 15 },
-            }}
-            whileTap={{
-              scale: 0.98,
-              transition: { type: "spring", stiffness: 400, damping: 25 },
-            }}
-            className="px-6 py-3 bg-orange-500 text-white text-lg font-semibold rounded-full hover:bg-orange-600 transition duration-300 sm:px-8 sm:py-4 sm:text-xl"
           >
-            Shop Now
-          </motion.button>
+            <Link href="/our-products">
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  transition: { type: "spring", stiffness: 300, damping: 15 },
+                }}
+                whileTap={{
+                  scale: 0.98,
+                  transition: { type: "spring", stiffness: 400, damping: 25 },
+                }}
+                className="px-6 py-3 bg-orange-500 text-white text-lg font-semibold rounded-full hover:bg-orange-600 transition duration-300 sm:px-8 sm:py-4 sm:text-xl"
+              >
+                Shop Now
+              </motion.button>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>
