@@ -22,13 +22,19 @@ const Footer: React.FC = () => {
             </motion.h3>
             <ul className="space-y-3 text-gray-200 text-lg">
               {[
-                "About Us",
-                "Our Products",
-                "Orangewood Labs",
-                "Orangewood Store",
+                { name: "About Us", link: "/about-us" },
+                { name: "Our Products", link: "/our-products" },
+                {
+                  name: "Orangewood Labs",
+                  link: "https://www.orangewood.co/",
+                },
+                {
+                  name: "Orangewood Store",
+                  link: "https://shop.orangewood.co/in",
+                },
               ].map((item, index) => (
                 <motion.li
-                  key={item}
+                  key={item.name}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -39,10 +45,16 @@ const Footer: React.FC = () => {
                   }}
                 >
                   <a
-                    href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={item.link}
+                    target={item.link.startsWith("http") ? "_blank" : "_self"}
+                    rel={
+                      item.link.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="hover:underline hover:underline-offset-4 transition-all duration-300"
                   >
-                    {item}
+                    {item.name}
                   </a>
                 </motion.li>
               ))}
@@ -190,7 +202,8 @@ const Footer: React.FC = () => {
 
           {/* Copyright Section */}
           <div className="text-center md:text-right opacity-80">
-            &copy; {new Date().getFullYear()} Orangewood Labs. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Orangewood Labs. All Rights
+            Reserved.
           </div>
         </div>
       </div>
