@@ -175,13 +175,13 @@ const Footer: React.FC = () => {
           {/* Links Section */}
           <div className="flex space-x-6">
             <a
-              href="/terms-of-use"
+              href="https://www.orangewood.co/terms-and-conditions"
               className="hover:underline hover:text-orange-500 transition-colors duration-200"
             >
               Terms of Use
             </a>
             <a
-              href="/privacy-policy"
+              href="https://www.orangewood.co/privacy-policy"
               className="hover:underline hover:text-orange-500 transition-colors duration-200"
             >
               Privacy Policy
