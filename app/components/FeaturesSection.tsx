@@ -61,7 +61,7 @@ const FeaturesSection: React.FC = () => {
             },
             {
               number: "02",
-              title: "Adaptive Gripping Technology",
+              title: "Adaptive Technology",
               description:
                 "Utilizing air pressure and vacuum control, our grippers ensure soft, adaptive gripping that minimizes stress on fragile items.",
             },
