@@ -4,7 +4,7 @@ import "./globals.css";
 
 // Define the PPMonumentExtended-Regular font
 const monumentRegular = localFont({
-  src: "/fonts/Neue Regrade Semibold.otf",
+  src: "/fonts/POICarbonicTrial-Medium.otf",
   variable: "--font-monument-regular",
   weight: "400", // Regular weight
 });
