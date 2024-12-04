@@ -1,10 +1,8 @@
 "use client";
-
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaEnvelope, FaPhone, FaBuilding, FaArrowLeft } from "react-icons/fa";
-
 interface FormData {
   firstName: string;
   lastName: string;
@@ -13,7 +11,6 @@ interface FormData {
   phone: string;
   comments: string;
 }
-
 const PricingRequestForm: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<"quote" | "help" | "">(
     ""
@@ -28,9 +25,8 @@ const PricingRequestForm: React.FC = () => {
     comments: "",
   });
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
-
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); // For error handling
+  const [successMessage, setSuccessMessage] = useState<string | null>(null); // For success message
   const handleProductSelection = (product: string) => {
     setSelectedProducts((prev) =>
       prev.includes(product)
@@ -38,7 +34,6 @@ const PricingRequestForm: React.FC = () => {
         : [...prev, product]
     );
   };
-
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -47,42 +42,35 @@ const PricingRequestForm: React.FC = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
-  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setErrorMessage(null);
-    setSuccessMessage(null);
-
+    setIsSubmitting(true); // Indicate form is being submitted
+    setErrorMessage(null); // Reset error message on new submission
+    setSuccessMessage(null); // Reset success message
     if (!selectedOption) {
       setErrorMessage("Please select an inquiry type.");
       setIsSubmitting(false);
       return;
     }
-
     if (selectedOption === "quote" && selectedProducts.length === 0) {
       setErrorMessage("Please select at least one product for the quote.");
       setIsSubmitting(false);
       return;
     }
-
     try {
-      const payload = {
-        selectedOption,
-        selectedProducts,
-        formData,
-      };
-
+      // Send the form data to the API route
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          selectedOption,
+          selectedProducts,
+          formData,
+        }),
       });
-
       const result = await response.json();
-
       if (response.ok) {
         setSuccessMessage(
           "Form submitted successfully! We will get back to you shortly."
@@ -92,12 +80,11 @@ const PricingRequestForm: React.FC = () => {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      setErrorMessage("An unexpected error occurred while submitting the form.");
+      setErrorMessage("An error occurred while submitting the form.");
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false); // Reset submitting state
     }
   };
-
   return (
     <div className="container mx-auto px-4 py-5">
       {/* Navbar Section */}
@@ -117,7 +104,6 @@ const PricingRequestForm: React.FC = () => {
           </Link>
         </div>
       </nav>
-
       {/* Main Content */}
       <div className="flex flex-col md:flex-row items-center md:items-start mt-8">
         {/* Form Section */}
@@ -134,11 +120,11 @@ const PricingRequestForm: React.FC = () => {
               All fields are required.
             </p>
           </div>
-
           <form
             onSubmit={handleSubmit}
             className="bg-gray-800 p-8 rounded-lg shadow-lg"
           >
+            {/* Step 1: Select Inquiry Type */}
             <div className="mb-6">
               <label className="block text-gray-300 font-medium mb-2">
                 I would like to:
@@ -161,7 +147,7 @@ const PricingRequestForm: React.FC = () => {
                 </option>
               </select>
             </div>
-
+            {/* Step 2: Product Selection (if quote is selected) */}
             {selectedOption === "quote" && (
               <div className="mb-6">
                 <label className="block text-gray-300 font-medium mb-2">
@@ -190,7 +176,7 @@ const PricingRequestForm: React.FC = () => {
                 </div>
               </div>
             )}
-
+            {/* Step 3: Buyer Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div>
                 <label className="block text-gray-300 font-medium mb-2">
@@ -219,7 +205,6 @@ const PricingRequestForm: React.FC = () => {
                 />
               </div>
             </div>
-
             <div className="mb-6">
               <label className="flex items-center text-gray-300 font-medium mb-2">
                 <FaEnvelope className="mr-2" />
@@ -234,7 +219,6 @@ const PricingRequestForm: React.FC = () => {
                 required
               />
             </div>
-
             <div className="mb-6">
               <label className="flex items-center text-gray-300 font-medium mb-2">
                 <FaBuilding className="mr-2" />
@@ -249,7 +233,6 @@ const PricingRequestForm: React.FC = () => {
                 required
               />
             </div>
-
             <div className="mb-6">
               <label className="flex items-center text-gray-300 font-medium mb-2">
                 <FaPhone className="mr-2" />
@@ -264,7 +247,6 @@ const PricingRequestForm: React.FC = () => {
                 required
               />
             </div>
-
             <div className="mb-6">
               <label className="block text-gray-300 font-medium mb-2">
                 Comments
@@ -277,7 +259,6 @@ const PricingRequestForm: React.FC = () => {
                 rows={4}
               ></textarea>
             </div>
-
             <button
               type="submit"
               className="w-full py-3 bg-orange-500 text-white text-xl rounded-lg"
@@ -286,7 +267,6 @@ const PricingRequestForm: React.FC = () => {
               {isSubmitting ? "Submitting..." : "Submit Request"}
             </button>
           </form>
-
           {errorMessage && (
             <p className="text-red-500 mt-4 text-center">{errorMessage}</p>
           )}
@@ -294,7 +274,7 @@ const PricingRequestForm: React.FC = () => {
             <p className="text-green-500 mt-4 text-center">{successMessage}</p>
           )}
         </div>
-
+        {/* Image Section */}
         <div className="flex flex-col md:flex-row items-center md:items-center mt-40">
           <Image
             src="/6.8 render.png"
@@ -308,5 +288,4 @@ const PricingRequestForm: React.FC = () => {
     </div>
   );
 };
-
 export default PricingRequestForm;
