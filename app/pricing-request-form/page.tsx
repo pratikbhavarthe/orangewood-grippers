@@ -28,8 +28,8 @@ const PricingRequestForm: React.FC = () => {
     comments: "",
   });
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null); // For error handling
-  const [successMessage, setSuccessMessage] = useState<string | null>(null); // For success message
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleProductSelection = (product: string) => {
     setSelectedProducts((prev) =>
@@ -48,11 +48,11 @@ const PricingRequestForm: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
-    setIsSubmitting(true); // Indicate form is being submitted
-    setErrorMessage(null); // Reset error message on new submission
-    setSuccessMessage(null); // Reset success message
+    setIsSubmitting(true);
+    setErrorMessage(null);
+    setSuccessMessage(null);
 
     if (!selectedOption) {
       setErrorMessage("Please select an inquiry type.");
@@ -67,17 +67,18 @@ const PricingRequestForm: React.FC = () => {
     }
 
     try {
-      // Send the form data to the API route
+      const payload = {
+        selectedOption,
+        selectedProducts,
+        formData,
+      };
+
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          selectedOption,
-          selectedProducts,
-          formData,
-        }),
+        body: JSON.stringify(payload),
       });
 
       const result = await response.json();
@@ -91,9 +92,9 @@ const PricingRequestForm: React.FC = () => {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      setErrorMessage("An error occurred while submitting the form.");
+      setErrorMessage("An unexpected error occurred while submitting the form.");
     } finally {
-      setIsSubmitting(false); // Reset submitting state
+      setIsSubmitting(false);
     }
   };
 
@@ -138,7 +139,6 @@ const PricingRequestForm: React.FC = () => {
             onSubmit={handleSubmit}
             className="bg-gray-800 p-8 rounded-lg shadow-lg"
           >
-            {/* Step 1: Select Inquiry Type */}
             <div className="mb-6">
               <label className="block text-gray-300 font-medium mb-2">
                 I would like to:
@@ -162,7 +162,6 @@ const PricingRequestForm: React.FC = () => {
               </select>
             </div>
 
-            {/* Step 2: Product Selection (if quote is selected) */}
             {selectedOption === "quote" && (
               <div className="mb-6">
                 <label className="block text-gray-300 font-medium mb-2">
@@ -192,7 +191,6 @@ const PricingRequestForm: React.FC = () => {
               </div>
             )}
 
-            {/* Step 3: Buyer Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div>
                 <label className="block text-gray-300 font-medium mb-2">
@@ -297,7 +295,6 @@ const PricingRequestForm: React.FC = () => {
           )}
         </div>
 
-        {/* Image Section */}
         <div className="flex flex-col md:flex-row items-center md:items-center mt-40">
           <Image
             src="/6.8 render.png"

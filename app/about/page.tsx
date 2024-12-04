@@ -72,7 +72,7 @@ const AboutUs: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              WE ARE ORANGEWOOD LABS
+              WE ARE AADHUNIK GRIPPERS
             </motion.h2>
             <motion.p
               className="text-lg sm:text-xl text-gray-300 text-justify"
@@ -80,7 +80,7 @@ const AboutUs: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
-              At Orangewood Labs, we’re leading the charge in developing innovative robotic solutions that bridge the gap between automation and real-world industries, helping businesses stay ahead with AI-powered technology.
+              At Aadhunik Grippers, we’re leading the charge in developing innovative robotic solutions that bridge the gap between automation and real-world industries, helping businesses stay ahead with AI-powered technology.
             </motion.p>
           </div>
 

@@ -202,7 +202,7 @@ const Footer: React.FC = () => {
 
           {/* Copyright Section */}
           <div className="text-center md:text-right opacity-80">
-            &copy; {new Date().getFullYear()} Orangewood Labs. All Rights
+            &copy; {new Date().getFullYear()} Aadhunik Grippers. All Rights
             Reserved.
           </div>
         </div>

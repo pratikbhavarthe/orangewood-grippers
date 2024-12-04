@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
             }}
             className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight sm:text-3xl"
           >
-            ORANGEWOOD LABS
+            AADHUNIK GRIPPERS
           </motion.h1>
 
           {/* Subheading: Gentle Floating and Fading */}

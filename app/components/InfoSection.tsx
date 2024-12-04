@@ -48,7 +48,7 @@ const InfoSection: React.FC = () => {
           >
             {/* Updated to beige color and removed animation */}
             <p className="text-xl md:text-2xl lg:text-3xl leading-relaxed text-gray-400 text-justify">
-              At Orangewood Labs, we create advanced soft grippers made from
+              At Aadhunik Grippers Labs, we create advanced soft grippers made from
               high-quality food-grade silicone. Designed for food processing and
               robotics, our grippers safely handle delicate items with flexibility
               and precision.
