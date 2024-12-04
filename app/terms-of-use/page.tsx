@@ -1,21 +1,21 @@
 "use client";
 
 import { NextPage } from "next";
-import Navbar from "../components/Navbar"; // Adjust the path as needed
-import Footer from "../components/Footer"; // Adjust the path as needed
+import Navbar from "../components/Navbar"; // Adjust path as needed
+import Footer from "../components/Footer"; // Adjust path as needed
 import { motion } from "framer-motion";
 
-const TermsAndConditions: NextPage = () => {
+const TermsOfUSe: NextPage = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-[#0a0a0a] text-gray-300">
+    <div className="flex flex-col min-h-screen bg-[#0a0a0a] text-gray-400">
       {/* Navbar */}
       <Navbar />
 
-      {/* Content */}
+      {/* Main Content */}
       <main className="flex-grow px-6 py-12 font-sans leading-relaxed">
-        {/* Title Section */}
+        {/* Title */}
         <motion.h1
-          className="text-4xl font-bold text-orange-600 mb-6 text-center"
+          className="text-4xl font-bold text-orange-600 mb-8 text-center"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -23,88 +23,124 @@ const TermsAndConditions: NextPage = () => {
           Terms and Conditions
         </motion.h1>
 
-        {/* Intro Section */}
+        {/* Intro */}
         <motion.p
-          className="mb-8 text-lg text-gray-400"
+          className="text-lg text-gray-400 mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Welcome to Aadhunik Grippers Labs! By accessing this website, you agree
-          to comply with and be bound by the following terms and conditions of use,
-          which together with our privacy policy govern Aadhunik Grippers Labs’
-          relationship with you in relation to this website. If you disagree with
-          any part of these terms and conditions, please do not use our website.
+          By accessing this website, you are agreeing to be bound by these Terms
+          and Conditions of Use, all applicable laws and regulations, and agree
+          that you are responsible for compliance with any applicable local
+          laws. If you do not agree with any of these terms, you are prohibited
+          from using or accessing this site.
         </motion.p>
 
-        {/* Sections */}
+        {/* Terms Sections */}
         <motion.div
           className="space-y-8"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.4 }}
         >
-          {/* Use of the Website */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-200 mb-4">
-              Use of the Website
+          {/* Terms */}
+          <section>
+            <h2 className="text-2xl font-semibold text-orange-600 mb-4">
+              Terms
+            </h2>
+            <p className="text-gray-400">
+              The materials contained on this website are protected by
+              applicable copyright and trademark law. You are prohibited from
+              using this site if you do not agree to these terms.
+            </p>
+          </section>
+
+          {/* Use License */}
+          <section>
+            <h2 className="text-2xl font-semibold text-orange-600 mb-4">
+              Use License
             </h2>
             <p className="text-gray-400 mb-4">
-              By using this website, you agree to the following terms of use:
+              Permission is granted to temporarily download one copy of the
+              materials on Aadhunik Grippers Labs' website for personal,
+              non-commercial transitory viewing only. Under this license, you
+              may not:
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-400">
-              <li>The content of the pages on this website is for general information only.</li>
+              <li>Modify or copy the materials.</li>
               <li>
-                We reserve the right to make changes to the website content without prior notice.
+                Use the materials for any commercial purpose or public display.
               </li>
               <li>
-                Your use of any information or materials on this website is entirely at your own risk.
+                Attempt to decompile or reverse engineer any software on the
+                website.
               </li>
+              <li>Remove any copyright or other proprietary notations.</li>
               <li>
-                Unauthorized use of this website may give rise to a claim for damages.
+                Transfer the materials to another person or mirror the materials
+                on another server.
               </li>
             </ul>
-          </div>
-
-          {/* Intellectual Property Rights */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-200 mb-4">
-              Intellectual Property Rights
-            </h2>
-            <p className="text-gray-400 mb-4">
-              All content included on this website, such as text, graphics, logos,
-              images, and software, is the property of Aadhunik Grippers Labs and
-              is protected by intellectual property laws. You may not reproduce,
-              distribute, or use any material without explicit permission.
+            <p className="text-gray-400 mt-4">
+              This license shall automatically terminate if you violate any of
+              these restrictions and may be terminated by Aadhunik Grippers Labs
+              at any time.
             </p>
-          </div>
+          </section>
 
-          {/* Limitation of Liability */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-200 mb-4">
-              Limitation of Liability
+          {/* Disclaimer */}
+          <section>
+            <h2 className="text-2xl font-semibold text-orange-600 mb-4">
+              Disclaimer
             </h2>
-            <p className="text-gray-400 mb-4">
-              In no event shall Aadhunik Grippers Labs, nor any of its officers,
-              directors, or employees, be held liable for anything arising out of
-              or in any way connected with your use of this website, whether such
-              liability is under contract or otherwise. We shall not be liable for
-              any indirect, consequential, or special liability arising out of or
-              in any way related to your use of this website.
+            <p className="text-gray-400">
+              The materials on this website are provided "as is." Aadhunik
+              Grippers Labs makes no warranties, expressed or implied, and
+              disclaims all other warranties, including implied warranties or
+              conditions of merchantability, fitness for a particular purpose,
+              or non-infringement of intellectual property or other violations
+              of rights.
             </p>
-          </div>
+          </section>
+
+          {/* Limitations */}
+          <section>
+            <h2 className="text-2xl font-semibold text-orange-600 mb-4">
+              Limitations
+            </h2>
+            <p className="text-gray-400">
+              In no event shall Aadhunik Grippers Labs or its suppliers be
+              liable for any damages arising out of the inability to use the
+              materials on the website, even if notified of the possibility of
+              such damages.
+            </p>
+          </section>
+
+          {/* Revisions and Errata */}
+          <section>
+            <h2 className="text-2xl font-semibold text-orange-600 mb-4">
+              Revisions and Errata
+            </h2>
+            <p className="text-gray-400">
+              The materials appearing on this website may include technical,
+              typographical, or photographic errors. Aadhunik Grippers Labs does
+              not warrant that any of the materials on its website are accurate,
+              complete, or current.
+            </p>
+          </section>
 
           {/* Governing Law */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-200 mb-4">
+          <section>
+            <h2 className="text-2xl font-semibold text-orange-600 mb-4">
               Governing Law
             </h2>
             <p className="text-gray-400">
-              These terms and conditions are governed by and construed in
-              accordance with the laws of [Your Country/State], and you irrevocably
-              submit to the exclusive jurisdiction of the courts in that location.
+              Any claim relating to Aadhunik Grippers Labs' website shall be
+              governed by the laws of the state without regard to conflict of
+              law provisions.
             </p>
-          </div>
+          </section>
         </motion.div>
       </main>
 
@@ -114,4 +150,4 @@ const TermsAndConditions: NextPage = () => {
   );
 };
 
-export default TermsAndConditions;
+export default TermsOfUSe;
