@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
           {/* Company Section */}
           <div>
             <motion.h3
-              className=" text-3xl text-black font-bold mb-6"
+              className="text-3xl text-black font-bold mb-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Stalk Us Section */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </motion.div> */}
         </div>
 
         {/* Middle Column: Contact Section */}
@@ -108,10 +108,10 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h3 className=" text-3xl text-black font-bold">Contact</h3>
+          <h3 className="text-3xl text-black font-bold">Contact</h3>
           <ul className="text-gray-200 text-lg space-y-4">
             <li>
-              <p className="font-bold">Orangewood Labs | R&D Department</p>
+              <p className="font-bold">Aadhunik Grippers</p>
             </li>
             <li>
               <p className="font-bold">Email:</p>
@@ -126,33 +126,32 @@ const Footer: React.FC = () => {
         </motion.div>
 
         {/* Right Column: Support Our Journey Section */}
-        <motion.div
+        {/* <motion.div
           className="flex flex-col w-full md:w-1/3 space-y-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h3 className=" text-3xl font-bold text-black">
-            Support our journey!
-          </h3>
+          <h3 className="text-3xl font-bold text-black">Support our journey!</h3>
           <p className="text-gray-200">
             Join us in powering the future of robotics with RoboGPT.
           </p>
           <div>
             <a
               href="https://www.ycombinator.com/launches/Iwk-orangewood-labs-robogpt"
-              className=" "
+              className="block"
             >
               <img
                 src="https://www.ycombinator.com/launches/Iwk-orangewood-labs-robogpt/upvote_embed.svg"
-                alt="yc launch"
+                alt="YC Launch"
+                className="w-full"
               />
             </a>
-          </div>
+          </div> */}
 
-          {/* Backed By Section with Images */}
-          <div>
+          {/* Backed By Section */}
+          {/* <div>
             <h4 className="text-black font-bold mb-4">Backed By</h4>
             <div className="flex items-center space-x-4">
               <img src="/yc.png" alt="Y Combinator" className="h-10" />
@@ -161,49 +160,34 @@ const Footer: React.FC = () => {
                 alt="For Good Ventures"
                 className="h-10"
               />
-              <img src="/7pc2.png" alt="7 PERCENT VENTURES" className="h-10" />
-              <img src="/finc.webp" alt="FOUNDERS, INC." className="h-10" />
-              <img src="/schox.png" alt="SCHOX" className="h-10" />
+              <img src="/7pc2.png" alt="7 Percent Ventures" className="h-10" />
+              <img src="/finc.webp" alt="Founders Inc." className="h-10" />
+              <img src="/schox.png" alt="Schox" className="h-10" />
             </div>
-          </div>
-
-          {/* Partners Section */}
-          <div>
-            <h4 className="text-black font-bold mb-2">Partners</h4>
-            <div className="flex items-center space-x-4">
-              <img src="/viam.jpg" alt="7 PERCENT VENTURES" className="h-10" />
-              <img src="/picknik.png" alt="FOUNDERS, INC." className="h-10" />
-            </div>
-          </div>
-        </motion.div>
+          </div> */}
+        {/* </motion.div> */}
       </div>
 
       {/* Footer Bottom */}
       <div className="container mx-auto mt-12 px-4">
-        {/* Border Line */}
         <hr />
-        {/* Links and Copyright Section */}
         <div className="mt-6 flex flex-col md:flex-row justify-between items-center text-white text-sm space-y-4 md:space-y-0">
-          {/* Links Section */}
           <div className="flex space-x-6">
             <a
-              href="https://www.orangewood.co/terms-and-conditions"
+              href="/terms-of-use"
               className="hover:underline hover:text-orange-500 transition-colors duration-200"
             >
               Terms of Use
             </a>
             <a
-              href="https://www.orangewood.co/privacy-policy"
+              href="/privacy-policy"
               className="hover:underline hover:text-orange-500 transition-colors duration-200"
             >
               Privacy Policy
             </a>
           </div>
-
-          {/* Copyright Section */}
           <div className="text-center md:text-right opacity-80">
-            &copy; {new Date().getFullYear()} Aadhunik Grippers. All Rights
-            Reserved.
+            &copy; {new Date().getFullYear()} Aadhunik Grippers. All Rights Reserved.
           </div>
         </div>
       </div>
