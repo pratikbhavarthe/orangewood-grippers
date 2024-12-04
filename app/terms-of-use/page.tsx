@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar"; // Adjust path as needed
 import Footer from "../components/Footer"; // Adjust path as needed
 import { motion } from "framer-motion";
 
-const TermsOfUSe: NextPage = () => {
+const TermsOfUse: NextPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-[#0a0a0a] text-gray-400">
       {/* Navbar */}
@@ -63,7 +63,7 @@ const TermsOfUSe: NextPage = () => {
             </h2>
             <p className="text-gray-400 mb-4">
               Permission is granted to temporarily download one copy of the
-              materials on Aadhunik Grippers Labs' website for personal,
+              materials on Aadhunik Grippers Labs&apos; website for personal,
               non-commercial transitory viewing only. Under this license, you
               may not:
             </p>
@@ -136,7 +136,7 @@ const TermsOfUSe: NextPage = () => {
               Governing Law
             </h2>
             <p className="text-gray-400">
-              Any claim relating to Aadhunik Grippers Labs' website shall be
+              Any claim relating to Aadhunik Grippers Labs&apos; website shall be
               governed by the laws of the state without regard to conflict of
               law provisions.
             </p>
@@ -150,4 +150,4 @@ const TermsOfUSe: NextPage = () => {
   );
 };
 
-export default TermsOfUSe;
+export default TermsOfUse;

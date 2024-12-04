@@ -87,7 +87,7 @@ const PrivacyPolicy: NextPage = () => {
               </li>
               <li>Request that a business delete any personal data collected.</li>
               <li>
-                Request that a business not sell the consumer's personal data.
+                Request that a business not sell the consumer&apos;s personal data.
               </li>
             </ul>
             <p className="text-gray-400 mt-4">
