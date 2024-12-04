@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
           <Image
             src="/logo.png"
             alt="Orangewood Logo"
-            width={190}
+            width={150}
             height={80}
           />
         </Link>
