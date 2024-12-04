@@ -22,7 +22,7 @@ const OurProducts = () => {
       {/* Hero Section */}
       <div className="relative w-full h-[50vh] sm:h-screen">
         <motion.img
-          src="/1g.png" // Adjust the path as needed for your image
+          src="/2g.PNG" // Adjust the path as needed for your image
           alt="Hero Image"
           className="w-full h-full object-cover"
           initial={{ opacity: 0 }}
