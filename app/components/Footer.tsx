@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
             </motion.h3>
             <ul className="space-y-3 text-gray-200 text-lg">
               {[
-                { name: "About Us", link: "/about-us" },
+                { name: "About Us", link: "/about" },
                 { name: "Our Products", link: "/our-products" },
                 // {
                 //   name: "Orangewood Labs",
