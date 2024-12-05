@@ -24,14 +24,14 @@ const Footer: React.FC = () => {
               {[
                 { name: "About Us", link: "/about-us" },
                 { name: "Our Products", link: "/our-products" },
-                {
-                  name: "Orangewood Labs",
-                  link: "https://www.orangewood.co/",
-                },
-                {
-                  name: "Orangewood Store",
-                  link: "https://shop.orangewood.co/in",
-                },
+                // {
+                //   name: "Orangewood Labs",
+                //   link: "https://www.orangewood.co/",
+                // },
+                // {
+                //   name: "Orangewood Store",
+                //   link: "https://shop.orangewood.co/in",
+                // },
               ].map((item, index) => (
                 <motion.li
                   key={item.name}
@@ -114,12 +114,14 @@ const Footer: React.FC = () => {
               <p className="font-bold">Aadhunik Grippers</p>
             </li>
             <li>
-              <p className="font-bold">Email:</p>
+              <p className="font-bold">Contact Us:</p>
               <a
-                href="mailto:saheem.k@orangewood.co"
+                href="https://forms.gle/t2c7sFUqeNr6bG1R7"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white hover:underline"
               >
-                saheem.k@orangewood.co
+                Fill out our form
               </a>
             </li>
           </ul>
@@ -150,8 +152,8 @@ const Footer: React.FC = () => {
             </a>
           </div> */}
 
-          {/* Backed By Section */}
-          {/* <div>
+        {/* Backed By Section */}
+        {/* <div>
             <h4 className="text-black font-bold mb-4">Backed By</h4>
             <div className="flex items-center space-x-4">
               <img src="/yc.png" alt="Y Combinator" className="h-10" />
@@ -175,19 +177,20 @@ const Footer: React.FC = () => {
           <div className="flex space-x-6">
             <a
               href="/terms-of-use"
-              className="hover:underline hover:text-orange-500 transition-colors duration-200"
+              className="hover:underline hover:text-black transition-colors duration-200"
             >
               Terms of Use
             </a>
             <a
               href="/privacy-policy"
-              className="hover:underline hover:text-orange-500 transition-colors duration-200"
+              className="hover:underline hover:text-black transition-colors duration-200"
             >
               Privacy Policy
             </a>
           </div>
           <div className="text-center md:text-right opacity-80">
-            &copy; {new Date().getFullYear()} Aadhunik Grippers. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Aadhunik Grippers. All Rights
+            Reserved.
           </div>
         </div>
       </div>

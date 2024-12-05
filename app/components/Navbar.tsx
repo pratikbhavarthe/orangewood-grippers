@@ -47,11 +47,11 @@ const Navbar: React.FC = () => {
         <div className="hidden md:flex space-x-8 text-lg font-medium">
           {["About Us", "Our Products", "Contact"].map((item, index) => {
             const path =
-              item === "About Us"
-                ? "/about"
-                : item === "Contact"
-                ? "mailto:saheem.k@orangewood.co"
-                : `/${item.toLowerCase().replace(/ /g, "-")}`;
+            item === "About Us"
+              ? "/about"
+              : item === "Contact"
+              ? "https://forms.gle/t2c7sFUqeNr6bG1R7"  // Google Form link
+              : `/${item.toLowerCase().replace(/ /g, "-")}`;
             return (
               <div key={index} className="relative">
                 {item === "Contact" ? (
