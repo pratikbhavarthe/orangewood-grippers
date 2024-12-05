@@ -94,7 +94,7 @@ const PricingRequestForm: React.FC = () => {
             <div className="flex items-center cursor-pointer ml-[-15px]">
               <FaArrowLeft className="text-orange-500 text-lg mr-3" />
               <Image
-                src="/ow.png"
+                src="/logo.png"
                 alt="Orangewood Logo"
                 width={180}
                 height={180}
